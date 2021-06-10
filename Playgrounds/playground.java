@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package gofo;
-
+package Playgrounds;
+import Users.*;
 
 public class Playground {
     
@@ -13,7 +8,7 @@ public class Playground {
     private Booking[] books_;
     private int numberOfBooks;
     private double price_;
-    private PlaygroundOwner owner_;
+    private playgroundOwner owner_;
     private double size_;
     private int playgroundID_;
     private boolean[][] timeSlots_;
@@ -95,11 +90,11 @@ public class Playground {
         this.price_ = aPrice;
     }
 
-    public PlaygroundOwner getOwner() {
+    public playgroundOwner getOwner() {
         return this.owner_;
     }
 
-    public void setOwner(PlaygroundOwner aOwnerID) {
+    public void setOwner(playgroundOwner aOwnerID) {
         this.owner_ = aOwnerID;
     }
 

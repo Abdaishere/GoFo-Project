@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package gofo;
+package Playgrounds;
 
-/**
- *
- * @author hp
- */
+
 public class PlaygroundList {
     
     private Playground[] playgrounds_;
@@ -22,7 +14,7 @@ public class PlaygroundList {
 	public PlaygroundList SearchPlaygrounds(String name, String loaction) {
             PlaygroundList playgrounds= new PlaygroundList();
             for (int i = 0; i < this.numberOfPlaygrounds_ + 1; i++) {
-                if(this.playgrounds_[i].getName()==name && this.playgrounds_[i].getLocation()==loaction)
+                if(this.playgrounds_[i].getName().equals(name) && this.playgrounds_[i].getLocation().equals(loaction))
                     playgrounds.addPlayGround(this.playgrounds_[i]);
             }
             return playgrounds;

@@ -1,12 +1,16 @@
+package GUI;
+
 import Playgrounds.*;
 import Users.*;
 import java.util.Scanner;
+
+
 public class GUI {
     public static void main(String [] args){
         Scanner input = new Scanner(System.in);
 
         userList _userList = new userList();
-        playgroundList _playgroundList = new playgroundList();
+        PlaygroundList _playgroundList = new PlaygroundList();
 
         user currentUser = _userList.Logout();
         while(true) {
