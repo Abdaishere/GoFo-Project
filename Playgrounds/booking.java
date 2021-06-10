@@ -1,40 +1,63 @@
-package Playgrounds;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gofo;
 
-import Users.player;
-import java.time.LocalDateTime;
+/**
+ *
+ * @author hp
+ */
+public class Booking {
+    
+    private int day_;
+    private int start_;
+    private int end_;
+    //private int playerID_;
+    private Playground playground_;
 
-public class booking {
-	private LocalDateTime _start;
-	private LocalDateTime _end;
-	private int _playerID;
+    public Booking(int day, int start, int end, Playground playground) {
+        this.day_ = day;
+        this.start_ = start;
+        this.end_ = end;
+        this.playground_ = playground;
+    }
+    
 
-	public LocalDateTime getStart() {
-		return this._start;
-	}
+    public int getStart() {
+        return this.start_;
+    }
 
-	public void setStart(LocalDateTime aStart) {
-		this._start = aStart;
-	}
+    public void setStart(int Start) {
+        this.start_ = Start;
+    }
 
-	public LocalDateTime getEnd() {
-		return this._end;
-	}
+    public int getEnd() {
+        return this.end_;
+    }
 
-	public void setEnd(LocalDateTime aEnd) {
-		this._end = aEnd;
-	}
+    public void setEnd(int End) {
+        this.end_ = End;
+    }
 
-	public int getPlayerID() {
-		return this._playerID;
-	}
+    public int getDay_() {
+        return day_;
+    }
 
-	public void setPlayerID(int aPlayerID) {
-		this._playerID = aPlayerID;
-	}
+    public void setDay_(int day_) {
+        this.day_ = day_;
+    }
 
-	public booking(LocalDateTime aStart, LocalDateTime aEnd, player aPlayer) {
-		_start = aStart;
-		_end = aEnd;
-		_playerID = aPlayer.getID();
-	}
+//	public int getPlayerID() {
+//		return this.playerID_;
+//	}
+
+//	public void setPlayerID(int PlayerID) {
+//		this.playerID_ = PlayerID;
+//	}
+
+//	public Booking(int Start, int End, Playground Playground) {
+//		throw new UnsupportedOperationException();
+//	}
 }

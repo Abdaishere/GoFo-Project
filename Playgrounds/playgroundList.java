@@ -1,20 +1,40 @@
-package Playgrounds;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gofo;
 
-import java.util.Vector;
+/**
+ *
+ * @author hp
+ */
+public class PlaygroundList {
+    
+    private Playground[] playgrounds_;
+    private int numberOfPlaygrounds_;
 
-public class playgroundList {
-	private playground _playgrounds;
-	public Vector<playground> _unnamed_playground_ = new Vector<playground>();
+    public PlaygroundList() {
+        playgrounds_         = new Playground[1000000];
+        numberOfPlaygrounds_ = 0;
+    }
 
-	public playgroundList SearchPlaygrounds(String aName, String aLoaction, String aDate, status aStatus) {
-		throw new UnsupportedOperationException();
-	}
+	public PlaygroundList SearchPlaygrounds(String name, String loaction) {
+            PlaygroundList playgrounds= new PlaygroundList();
+            for (int i = 0; i < this.numberOfPlaygrounds_ + 1; i++) {
+                if(this.playgrounds_[i].getName()==name && this.playgrounds_[i].getLocation()==loaction)
+                    playgrounds.addPlayGround(this.playgrounds_[i]);
+            }
+            return playgrounds;
+        }
 
 	public void displayplaygrounds() {
-		throw new UnsupportedOperationException();
+            for (int i = 0; i < this.numberOfPlaygrounds_ + 1; i++) {
+                this.playgrounds_[i].displayPlayground();
+            }
 	}
 
-	public void addPlayGround(playground aPlayground) {
-		throw new UnsupportedOperationException();
+	public void addPlayGround(Playground playground) {
+            this.playgrounds_[this.numberOfPlaygrounds_++] = playground;
 	}
 }

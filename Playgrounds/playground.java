@@ -1,97 +1,122 @@
-package Playgrounds;
-
-import Users.playgroundOwner;
-import java.util.Vector;
-
-public class playground {
-	private booking _requests;
-	private complaint _complaints;
-	private String _name;
-	private String _location;
-	private booking _books;
-	private status _status;
-	private double _price;
-	private playgroundOwner _owner;
-	private double _size;
-	private int _playgroundID;
-	public playgroundList _unnamed_playgroundList_;
-	public status _unnamed_status_;
-	public Vector<complaint> _unnamed_complaint_ = new Vector<complaint>();
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gofo;
 
 
-	public booking getRequests() {
-		return this._requests;
-	}
+public class Playground {
+    
+    private String name_;
+    private String location_;
+    private Booking[] books_;
+    private int numberOfBooks;
+    private double price_;
+    private PlaygroundOwner owner_;
+    private double size_;
+    private int playgroundID_;
+    private boolean[][] timeSlots_;
+    private int availableFrom_;
+    private int availableTo_;
+    
+    public Playground(String name, String location, double price, int availableFrom, int availableTo) {
+        this.name_          = name_;
+        this.location_      = location_;
+        this.price_         = price_;
+        this.availableFrom_ = availableFrom_;
+        this.availableTo_   = availableTo_;
+        this.books_         = new Booking[30*(availableTo-availableFrom+1)];
+        this.timeSlots_     = new boolean[30][availableTo-availableFrom+1];
+        this.numberOfBooks  = 0;
+        
+        for (int day = 0; day < 30; day++) {
+            for (int hour = 0; hour < availableTo-availableFrom+1; hour++)
+                timeSlots_[day][hour]= true;
+        }
+        
+    }
 
-	public void setRequests(booking aRequests) {
-		this._requests = aRequests;
-	}
+    public boolean[][] getTimeSlots_() {
+        return timeSlots_;
+    }
 
-	public complaint getComplaints() {
-		return this._complaints;
-	}
+    public void changeTimeSlots_(Booking book) {
+        
+        for (int hour = (book.getStart()- this.availableFrom_) ; hour < (book.getEnd()- this.availableFrom_); hour++)
+            timeSlots_[book.getDay_()][hour] = false;
+    }
 
-	public void setComplaints(complaint aComplaints) {
-		this._complaints = aComplaints;
-	}
+    public int getAvailableFrom_() {
+        return availableFrom_;
+    }
 
-	public String getName() {
-		return this._name;
-	}
+    public int getAvailableTo_() {
+        return availableTo_;
+    }
 
-	public void setName(String aName) {
-		this._name = aName;
-	}
+    public void setAvailableFrom_(int availableFrom) {
+        this.availableFrom_ = availableFrom;
+    }
 
-	public String getLocation() {
-		return this._location;
-	}
+    public void setAvailableTo_(int availableTo_) {
+        this.availableTo_ = availableTo_;
+    }
 
-	public void setLocation(String aLocation) {
-		this._location = aLocation;
-	}
+    public String getName() {
+        return this.name_;
+    }
 
-	public booking getBooks() {
-		return this._books;
-	}
+    public void setName(String aName) {
+        this.name_ = aName;
+    }
 
-	public void addBook(booking aBooking) {
-		throw new UnsupportedOperationException();
-	}
+    public String getLocation() {
+        return this.location_;
+    }
 
-	public status getStatus() {
-		return this._status;
-	}
+    public void setLocation(String aLocation) {
+        this.location_ = aLocation;
+    }
 
-	public void setStatus(status aStatus) {
-		this._status = aStatus;
-	}
+    public Booking[] getBooks() {
+        return this.books_;
+    }
 
-	public playground(String aName, String aLocation, double aSize, double aPrice) {
-		throw new UnsupportedOperationException();
-	}
+    public void addBook(Booking book) {
+        this.books_[this.numberOfBooks++]= book;
+    }
 
-	public double getPrice() {
-		return this._price;
-	}
+    public double getPrice() {
+        return this.price_;
+    }
 
-	public void setPrice(double aPrice) {
-		this._price = aPrice;
-	}
+    public void setPrice(double aPrice) {
+        this.price_ = aPrice;
+    }
 
-	public playgroundOwner getOwner() {
-		return this._owner;
-	}
+    public PlaygroundOwner getOwner() {
+        return this.owner_;
+    }
 
-	public void setOwner(playgroundOwner aOwnerID) {
-		this._owner = aOwnerID;
-	}
+    public void setOwner(PlaygroundOwner aOwnerID) {
+        this.owner_ = aOwnerID;
+    }
 
-	public double getSize() {
-		return this._size;
-	}
+    public double getSize() {
+        return this.size_;
+    }
 
-	public void setSize(double aSize) {
-		this._size = aSize;
-	}
+    public void setSize(double Size) {
+        this.size_ = Size;
+    }
+    
+    public void displayPlayground() {
+        System.out.println("\nPlayground's Name: "+this.name_
+                          +"\nPlayground's Location: "+this.location_
+                          +"\nAvailable From: "+this.availableFrom_
+                          +"  |  Available To: "+this.availableTo_+"\n"
+        );
+    }
 }
+
