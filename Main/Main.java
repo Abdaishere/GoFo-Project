@@ -1,14 +1,21 @@
-package GUI;
+package Main;
 
 import Playgrounds.*;
 import Users.*;
 import java.util.Scanner;
 
+/**
+ * @author  20190329    Abdallah Mohmad Abdullatif
+ * @author  20190462	Mohamed Essam Said Hanafi
+ * @author  20190030	Ahmed Ragab Eissa Elsayed
+ * the main method used to declare and initialize the list of users and playgrounds to be used in the system
+ * 
+ */
 
-public class GUI {
+public class Main {
     public static void main(String [] args){
         Scanner input = new Scanner(System.in);
-
+        int P_ID=1;
         userList _userList = new userList();
         PlaygroundList _playgroundList = new PlaygroundList();
 
@@ -61,22 +68,21 @@ public class GUI {
 
                             System.out.print("Set Month's Day : ");
                             int day = input.nextInt();
-                            day--;
 
                             System.out.print("The available slots is : ");
-                            playgrounds.getPlaygroundByID(id).getTimeSlots_(day);
+                            _playgroundList.SearchPlaygrounds(name, location).getPlaygroundByID(id).getTimeSlots_(day);
 
                             System.out.print("Book from slot : ");
                             int slot1 = input.nextInt(); 
                             System.out.print("To slot : ");
                             int slot2 = input.nextInt(); 
 
-                            Booking book = new Booking(day, slot1, slot2, playgrounds.getPlaygroundByID(id), _userList.login(aName,aPassword).getID());
+                            Booking book = new Booking(day, slot1, slot2, _playgroundList.SearchPlaygrounds(name, location).getPlaygroundByID(id), _userList.login(aName,aPassword).getID());
                             
-                            
-
-                            if(_userList.login(aName,aPassword).send_money(book, playgrounds.getPlaygroundByID(id))){
-                                playgrounds.getPlaygroundByID(id).addBook(book);
+                            if(_userList.login(aName,aPassword).send_money(book, _playgroundList.SearchPlaygrounds(name, location).getPlaygroundByID(id))){
+                                _playgroundList.SearchPlaygrounds(name, location).getPlaygroundByID(id).addBook(book);
+                                _playgroundList.SearchPlaygrounds(name, location).getPlaygroundByID(id).changeTimeSlots_(book);
+                                
                             }
                             else
                                 System.out.println("No enough money");
@@ -91,7 +97,7 @@ public class GUI {
                             case 2:{
                                 System.out.print("Set amount of money: ");
                                 double money = input.nextInt(); 
-                                _userList.login(aName,aPassword).setBalance(money);
+                                _userList.login(aName,aPassword).addBalance(money);
                                 break;
                             }
                             case 3:{
@@ -124,10 +130,9 @@ public class GUI {
                                 System.out.print("Playground Available To: ");
                                 int playgroundTo = input.nextInt();
 
-                                Playground p =new Playground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo, _userList.login(aName,aPassword));
-                                _playgroundList.addPlayGround(p);
-                                _userList.login(aName,aPassword).addplayground(p);
-
+                                _userList.login(aName,aPassword).addplayground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo, P_ID);
+                                _playgroundList.addPlayGround(new Playground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo, _userList.login(aName,aPassword), P_ID++));
+                                
                                 break;
                             }
                             case 2:{
