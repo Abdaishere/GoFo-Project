@@ -16,9 +16,9 @@ public class PlaygroundOwner extends user{
     }
     
     @Override
-    public void addplayground(String name, String location, double price, int availableFrom, int availableTo) {
+    public void addplayground(Playground p) {
         
-        this.playgrounds_.addPlayGround(new Playground(name, location, price, availableFrom, availableTo , this));
+        this.playgrounds_.addPlayGround(p);
     }
 
     @Override

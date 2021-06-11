@@ -14,6 +14,8 @@ public class player extends user {
 		super(aID,aUsername,aPassword);
 		this.setAccountType(account.Player);
 	}
+	@Override
+	public void addplayground(Playground p){}
      
         @Override
 	public boolean send_money(Booking book, Playground aPlayground) {

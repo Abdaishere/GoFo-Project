@@ -61,6 +61,7 @@ public class GUI {
 
                             System.out.print("Set Month's Day : ");
                             int day = input.nextInt();
+                            day--;
 
                             System.out.print("The available slots is : ");
                             playgrounds.getPlaygroundByID(id).getTimeSlots_(day);
@@ -76,7 +77,6 @@ public class GUI {
 
                             if(_userList.login(aName,aPassword).send_money(book, playgrounds.getPlaygroundByID(id))){
                                 playgrounds.getPlaygroundByID(id).addBook(book);
-                                playgrounds.getPlaygroundByID(id).changeTimeSlots_(book);
                             }
                             else
                                 System.out.println("No enough money");
@@ -124,9 +124,10 @@ public class GUI {
                                 System.out.print("Playground Available To: ");
                                 int playgroundTo = input.nextInt();
 
-                                _userList.login(aName,aPassword).addplayground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo);
-                                _playgroundList.addPlayGround(new Playground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo, _userList.login(aName,aPassword)));
-                                
+                                Playground p =new Playground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo, _userList.login(aName,aPassword));
+                                _playgroundList.addPlayGround(p);
+                                _userList.login(aName,aPassword).addplayground(p);
+
                                 break;
                             }
                             case 2:{

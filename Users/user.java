@@ -3,7 +3,7 @@ package Users;
 import Playgrounds.Booking;
 import Playgrounds.Playground;
 
-public class user {
+public abstract class user {
 	protected String _username;
 	protected String _password;
 	protected double _balance;
@@ -66,7 +66,10 @@ public class user {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public boolean displaypersonalplaygrounds() {
+
+	public abstract void addplayground(Playground p);
+
+	public boolean displaypersonalplaygrounds() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

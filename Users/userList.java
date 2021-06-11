@@ -7,7 +7,7 @@ public class userList {
 	private Vector<user> _usersArray = new Vector<user>();
 
 	public userList(){
-		_usersArray.add(new user(0, null, null));
+		_usersArray.add(new player(0, null, null));
 	}
 
 	public user login(String aName, String aPassword) {
