@@ -4,7 +4,7 @@ package Playgrounds;
 public class complaint {
 	private int _playerID;
 	private String _complaint;
-	public playground _unnamed_playground_;
+
 
 	public int getPlayerID() {
 		return this._playerID;

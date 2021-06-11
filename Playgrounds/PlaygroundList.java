@@ -25,7 +25,7 @@ public class PlaygroundList {
         }
 
 	public boolean displayplaygrounds() {
-            if(playgrounds_.size()!= 0){
+            if(!playgrounds_.isEmpty()){
             for (int i = 0; i < this.playgrounds_.size(); i++) {
                 this.playgrounds_.get(i).displayPlayground();
             }
@@ -35,6 +35,6 @@ public class PlaygroundList {
 	}
 
 	public void addPlayGround(Playground playground) {
-            this.playgrounds_.add(playground);
+            this.playgrounds_.add(new Playground(playground.getName(), playground.getLocation(), playground.getPrice(), playground.getAvailableFrom_(), playground.getAvailableTo_(), playground.getOwner()));
 	}
 }

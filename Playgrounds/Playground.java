@@ -8,22 +8,23 @@ public class Playground {
     private Booking[] books_;
     private int numberOfBooks;
     private double price_;
-    private PlaygroundOwner owner_;
+    private user owner_;
     private double size_;
     private int playgroundID_;
     private boolean[][] timeSlots_;
     private int availableFrom_;
     private int availableTo_;
     
-    public Playground(String name, String location, double price, int availableFrom, int availableTo) {
-        this.name_          = name_;
-        this.location_      = location_;
-        this.price_         = price_;
-        this.availableFrom_ = availableFrom_;
-        this.availableTo_   = availableTo_;
+    public Playground(String name, String location, double price, int availableFrom, int availableTo, user playgroundOwner) {
+        this.name_          = name;
+        this.location_      = location;
+        this.price_         = price;
+        this.availableFrom_ = availableFrom;
+        this.availableTo_   = availableTo;
         this.books_         = new Booking[30*(availableTo-availableFrom+1)];
         this.timeSlots_     = new boolean[30][availableTo-availableFrom+1];
         this.numberOfBooks  = 0;
+        this.owner_         = playgroundOwner;
         
         for (int day = 0; day < 30; day++) {
             for (int hour = 0; hour < availableTo-availableFrom; hour++)
@@ -99,7 +100,7 @@ public class Playground {
         this.price_ = aPrice;
     }
 
-    public PlaygroundOwner getOwner() {
+    public user getOwner() {
         return this.owner_;
     }
 

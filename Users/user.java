@@ -31,7 +31,7 @@ public class user {
 	}
 
 	public void setBalance(double aBalance) {
-		this._balance = aBalance;
+		this._balance += aBalance;
 	}
 
 	public account getAccountType() {

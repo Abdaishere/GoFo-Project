@@ -71,9 +71,15 @@ public class GUI {
                             int slot2 = input.nextInt(); 
 
                             Booking book = new Booking(day, slot1, slot2, playgrounds.getPlaygroundByID(id), _userList.login(aName,aPassword).getID());
-                            playgrounds.getPlaygroundByID(id).addBook(book);
+                            
+                            
 
-                            _userList.login(aName,aPassword).send_money(book, playgrounds.getPlaygroundByID(id));
+                            if(_userList.login(aName,aPassword).send_money(book, playgrounds.getPlaygroundByID(id))){
+                                playgrounds.getPlaygroundByID(id).addBook(book);
+                                playgrounds.getPlaygroundByID(id).changeTimeSlots_(book);
+                            }
+                            else
+                                System.out.println("No enough money");
 
                             }
                             else
@@ -119,6 +125,8 @@ public class GUI {
                                 int playgroundTo = input.nextInt();
 
                                 _userList.login(aName,aPassword).addplayground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo);
+                                _playgroundList.addPlayGround(new Playground(playgroundName, playgroundLocation, playgroundPrice, playgroundFrom, playgroundTo, _userList.login(aName,aPassword)));
+                                
                                 break;
                             }
                             case 2:{
