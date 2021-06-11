@@ -1,9 +1,11 @@
 package Users;
+import Playgrounds.Playground;
+import Playgrounds.PlaygroundList;
+import Playgrounds.Booking;
+import Playgrounds.Playground;
+import Playgrounds.PlaygroundList;
+import Playgrounds.Booking;
 
-import Playgrounds.playground;
-import Playgrounds.playgroundList;
-import Playgrounds.booking;
-import java.time.LocalDateTime;
 
 public class player extends user {
 
@@ -12,19 +14,7 @@ public class player extends user {
 		this.setAccountType(account.Player);
 	}
 
-	public void inviteTeam(String aEmail) {
-		throw new UnsupportedOperationException();
-	}
-
-	public playgroundList seeRequests() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void bookPlayground(String aName, String aLoaction, LocalDateTime aDate) {
-
-	}
-
-	public boolean send_money(double aValue, playground aPlayground) {
+	public boolean send_money(double aValue, Playground aPlayground) {
 		if (aValue < aPlayground.getPrice())
 			return false;
 		this._balance -= aValue;
@@ -32,12 +22,19 @@ public class player extends user {
 		return true;
 	}
 
-	public void request(LocalDateTime aStart_D, LocalDateTime aEnd_D, playground aPlayground) {
-		aPlayground.setRequests(new booking(aStart_D,aEnd_D,this));
-	}
-
 	@Override
 	public void displayMenu() {
 		System.out.println("this is a player");
+	}
+        
+        @Override
+	public boolean send_money(Booking book, Playground aPlayground) {
+            
+                double value = (book.getEnd()-book.getStart())*aPlayground.getPrice();
+		if ( value < aPlayground.getPrice())
+			return false;
+		this._balance -= value;
+		aPlayground.getOwner()._balance += value;
+		return true;
 	}
 }

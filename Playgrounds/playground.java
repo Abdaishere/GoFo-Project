@@ -8,7 +8,7 @@ public class Playground {
     private Booking[] books_;
     private int numberOfBooks;
     private double price_;
-    private playgroundOwner owner_;
+    private PlaygroundOwner owner_;
     private double size_;
     private int playgroundID_;
     private boolean[][] timeSlots_;
@@ -26,14 +26,19 @@ public class Playground {
         this.numberOfBooks  = 0;
         
         for (int day = 0; day < 30; day++) {
-            for (int hour = 0; hour < availableTo-availableFrom+1; hour++)
+            for (int hour = 0; hour < availableTo-availableFrom; hour++)
                 timeSlots_[day][hour]= true;
         }
         
     }
 
-    public boolean[][] getTimeSlots_() {
-        return timeSlots_;
+    public void getTimeSlots_(int day) {
+            for (int hour = 0; hour < (this.availableTo_ - this.availableFrom_); hour++)
+            {
+                if(timeSlots_[day][hour]== true){
+                    System.out.print((this.availableFrom_+hour)+"   ");
+                }
+            }
     }
 
     public void changeTimeSlots_(Booking book) {
@@ -56,6 +61,10 @@ public class Playground {
 
     public void setAvailableTo_(int availableTo_) {
         this.availableTo_ = availableTo_;
+    }
+    
+    public int getPlaygroundID_() {
+        return playgroundID_;
     }
 
     public String getName() {
@@ -90,11 +99,11 @@ public class Playground {
         this.price_ = aPrice;
     }
 
-    public playgroundOwner getOwner() {
+    public PlaygroundOwner getOwner() {
         return this.owner_;
     }
 
-    public void setOwner(playgroundOwner aOwnerID) {
+    public void setOwner(PlaygroundOwner aOwnerID) {
         this.owner_ = aOwnerID;
     }
 
@@ -107,10 +116,11 @@ public class Playground {
     }
     
     public void displayPlayground() {
-        System.out.println("\nPlayground's Name: "+this.name_
+        System.out.println("\nPlaygroundID: "         +this.playgroundID_
+                          +"\nPlayground's Name: "    +this.name_
                           +"\nPlayground's Location: "+this.location_
-                          +"\nAvailable From: "+this.availableFrom_
-                          +"  |  Available To: "+this.availableTo_+"\n"
+                          +"\nAvailable From: "       +this.availableFrom_
+                          +"  |  Available To: "      +this.availableTo_+"\n"
         );
     }
 }

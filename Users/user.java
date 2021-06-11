@@ -1,6 +1,7 @@
 package Users;
 
-import Users.account;
+import Playgrounds.Booking;
+import Playgrounds.Playground;
 
 public class user {
 	protected String _username;
@@ -57,8 +58,15 @@ public class user {
 
 	}
 
-	public void displayMenu() {
-		throw new UnsupportedOperationException();
-	}
+    public boolean send_money(Booking book, Playground playgroundByID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    public void addplayground(String playgroundName, String playgroundLocation, double playgroundPrice, int playgroundFrom, int playgroundTo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean displaypersonalplaygrounds() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,22 +5,23 @@
  */
 package Playgrounds;
 
+import Users.player;
+import java.time.LocalDateTime;
 
 public class Booking {
-    
-    private int day_;
+     private int day_;
     private int start_;
     private int end_;
-    //private int playerID_;
+    private int playerID_;
     private Playground playground_;
 
-    public Booking(int day, int start, int end, Playground playground) {
-        this.day_ = day;
-        this.start_ = start;
-        this.end_ = end;
+    public Booking(int day, int start, int end, Playground playground, int playerID) {
+        this.day_        = day;
+        this.start_      = start;
+        this.end_        = end;
         this.playground_ = playground;
+        this.playerID_   = playerID;
     }
-    
 
     public int getStart() {
         return this.start_;
@@ -46,15 +47,11 @@ public class Booking {
         this.day_ = day_;
     }
 
-//	public int getPlayerID() {
-//		return this.playerID_;
-//	}
+    public int getPlayerID() {
+        return this.playerID_;
+    }
 
-//	public void setPlayerID(int PlayerID) {
-//		this.playerID_ = PlayerID;
-//	}
-
-//	public Booking(int Start, int End, Playground Playground) {
-//		throw new UnsupportedOperationException();
-//	}
+    public void setPlayerID(int PlayerID) {
+        this.playerID_ = PlayerID;
+    }
 }

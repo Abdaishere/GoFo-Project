@@ -27,13 +27,13 @@ public class userList {
 		if (aType == account.Player)
 			_usersArray.add(new player(_usersArray.size(),aName,aPassword));
 		else
-			_usersArray.add(new playgroundOwner(_usersArray.size(),aName,aPassword));
+			_usersArray.add(new PlaygroundOwner(_usersArray.size(),aName,aPassword));
 
 		return true;
 	}
 
 	public void listAccounts() {
-		for (int i=0; i<_usersArray.size(); i++){
+		for (int i=1; i<_usersArray.size(); i++){
 			System.out.println(_usersArray.get(i).getID());
 			System.out.println(_usersArray.get(i).getAccountType());
 			System.out.println(_usersArray.get(i).getUsername());

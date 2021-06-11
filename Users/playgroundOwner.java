@@ -1,22 +1,30 @@
 package Users;
 
-public class playgroundOwner extends user {
+import Playgrounds.Playground;
+import Playgrounds.PlaygroundList;
 
-	public playgroundOwner(int aID, String aUsername, String aPassword) {
-		super(aID,aUsername,aPassword);
-		this.setAccountType(account.playgroundOwner);
-	}
+public class PlaygroundOwner extends user{
+    
+    private PlaygroundList playgrounds_;
+    
+    
+    public PlaygroundOwner(int aID, String aUsername, String aPassword) {
+        super(aID, aUsername, aPassword);
+	this.setAccountType(account.playgroundOwner);
+     
+        this.playgrounds_= new PlaygroundList();
+    }
+    
+    @Override
+    public void addplayground(String name, String location, double price, int availableFrom, int availableTo) {
+        
+        this.playgrounds_.addPlayGround(new Playground(name, location, price, availableFrom, availableTo));
+    }
 
-	public boolean addplayground(String aName, String aLocation, double aSize, double aPrice) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void displaypersonalplaygrounds() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public void displayMenu() {
-		System.out.println("this is a playgroundOwner");
-	}
+    @Override
+    public boolean displaypersonalplaygrounds() {
+        if(this.playgrounds_.displayplaygrounds())
+            return true;
+        return false;
+    }
 }
