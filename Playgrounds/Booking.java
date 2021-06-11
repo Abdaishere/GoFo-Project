@@ -2,7 +2,7 @@
 package Playgrounds;
 
 /**
- * @author  20190462	Mohamed Essam Said Hanafi
+ * @author  Mohamed Essam Said Hanafi
  * Booking class used for booking a playground with the day and start and end date and who booked the playground
  *
  */

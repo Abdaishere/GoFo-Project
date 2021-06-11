@@ -2,7 +2,7 @@ package Playgrounds;
 import java.util.Vector;
 
 /**
- * @author  20190462	Mohamed Essam Said Hanafi
+ * @author  Mohamed Essam Said Hanafi
  * List all the playground in the system or for an owner to easily add new playgrounds and search in them
  */
 public class PlaygroundList {

@@ -4,7 +4,7 @@ import Playgrounds.Booking;
 import Playgrounds.Playground;
 
 /**
- *  @author  20190329    Abdallah Mohmad Abdullatif
+ *  @author  Abdallah Mohmad Abdullatif
  *  the defaul user of the system used only when logedout or as a base class for player and playground owner
  */
 public class user {

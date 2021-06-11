@@ -1,7 +1,7 @@
 package Playgrounds;
 
 /**
- * @author  20190462	Mohamed Essam Said Hanafi
+ * @author  Mohamed Essam Said Hanafi
  * @version 1.0
  * a class that hold a complaint for a playground and who complained and what was the reason
  */

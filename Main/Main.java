@@ -5,9 +5,9 @@ import Users.*;
 import java.util.Scanner;
 
 /**
- * @author  20190329    Abdallah Mohmad Abdullatif
- * @author  20190462	Mohamed Essam Said Hanafi
- * @author  20190030	Ahmed Ragab Eissa Elsayed
+ * @author  Abdallah Mohmad Abdullatif
+ * @author  Mohamed Essam Said Hanafi
+ * @author  Ahmed Ragab Eissa Elsayed
  * the main method used to declare and initialize the list of users and playgrounds to be used in the system
  * 
  */

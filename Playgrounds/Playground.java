@@ -2,7 +2,7 @@ package Playgrounds;
 import Users.*;
 
 /**
- * @author  20190462	Mohamed Essam Said Hanafi
+ * @author  Mohamed Essam Said Hanafi
  * The playground is class used to store and mannage the information about the playground and avalible slot of that playground and the bookings for the playground
  */
 public class Playground {

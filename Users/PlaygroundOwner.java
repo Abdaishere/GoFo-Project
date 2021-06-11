@@ -4,7 +4,7 @@ import Playgrounds.Playground;
 import Playgrounds.PlaygroundList;
 
 /**
- *  @author  20190329    Abdallah Mohmad Abdullatif
+ *  @author  Abdallah Mohmad Abdullatif
  * an owner user to store his balance and add his playgrounds to
  */
 

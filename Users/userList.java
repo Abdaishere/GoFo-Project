@@ -3,7 +3,7 @@ package Users;
 import java.util.Vector;
 
 /**
- *  @author  20190329    Abdallah Mohmad Abdullatif
+ *  @author  Abdallah Mohmad Abdullatif
  *  this list is used only for storing all the user registerd in the system
  */
 public class userList {

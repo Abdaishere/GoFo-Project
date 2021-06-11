@@ -4,7 +4,7 @@ import Playgrounds.Booking;
 import static java.lang.Math.abs;
 
 /**
- *  @author  20190329    Abdallah Mohmad Abdullatif
+ *  @author  Abdallah Mohmad Abdullatif
  *  the player user used to store the balance of the player and store his money
  */
 public class player extends user {
