@@ -5,15 +5,12 @@
  */
 package Playgrounds;
 
-import Users.player;
-import java.time.LocalDateTime;
-
 public class Booking {
      private int day_;
     private int start_;
     private int end_;
     private int playerID_;
-    private Playground playground_;
+    private final Playground playground_;
 
     public Booking(int day, int start, int end, Playground playground, int playerID) {
         this.day_        = day;

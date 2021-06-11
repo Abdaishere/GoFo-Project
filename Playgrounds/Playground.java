@@ -5,17 +5,17 @@ public class Playground {
     
     private String name_;
     private String location_;
-    private Booking[] books_;
+    private final Booking[] books_;
     private int numberOfBooks;
     private double price_;
     private user owner_;
     private double size_;
     private int playgroundID_;
-    private boolean[][] timeSlots_;
+    private final boolean[][] timeSlots_;
     private int availableFrom_;
     private int availableTo_;
     
-    public Playground(String name, String location, double price, int availableFrom, int availableTo, user playgroundOwner) {
+    public Playground(String name, String location, double price, int availableFrom, int availableTo, user playgroundOwner, int P_ID) {
         this.name_          = name;
         this.location_      = location;
         this.price_         = price;
@@ -25,10 +25,11 @@ public class Playground {
         this.timeSlots_     = new boolean[30][availableTo-availableFrom+1];
         this.numberOfBooks  = 0;
         this.owner_         = playgroundOwner;
+        this.playgroundID_  = P_ID;
         
         for (int day = 0; day < 30; day++) {
             for (int hour = 0; hour < availableTo-availableFrom; hour++)
-                this.timeSlots_[day][hour]= true;
+                timeSlots_[day][hour]= true;
         }
         
     }
@@ -37,26 +38,16 @@ public class Playground {
         System.out.print("| ");
             for (int hour = 0; hour < (this.availableTo_ - this.availableFrom_); hour++)
             {
-                if(this.timeSlots_[day][hour]){
+                if(timeSlots_[day-1][hour]== true){
                     System.out.print((this.availableFrom_+hour)+" | ");
                 }
             }
     }
 
     public void changeTimeSlots_(Booking book) {
-
-        for (int hour = (book.getStart()- this.availableFrom_) ; hour <= (book.getEnd()- this.availableFrom_); hour++) {
-            this.timeSlots_[book.getDay_()][hour] = false;
-        }
-    }
-
-    public void addBook(Booking book) {
-        this.books_[this.numberOfBooks++]= book;
-        this.changeTimeSlots_(book);
-    }
-
-    public void setID(int id){
-        this.playgroundID_ = id;
+        
+        for (int hour = (book.getStart()- this.availableFrom_) ; hour <= (book.getEnd()- this.availableFrom_); hour++)
+            timeSlots_[book.getDay_()-1][hour] = false;
     }
 
     public int getAvailableFrom_() {
@@ -74,7 +65,7 @@ public class Playground {
     public void setAvailableTo_(int availableTo_) {
         this.availableTo_ = availableTo_;
     }
-
+    
     public int getPlaygroundID_() {
         return playgroundID_;
     }
@@ -99,6 +90,9 @@ public class Playground {
         return this.books_;
     }
 
+    public void addBook(Booking book) {
+        this.books_[this.numberOfBooks++]= book;
+    }
 
     public double getPrice() {
         return this.price_;
@@ -128,6 +122,7 @@ public class Playground {
         System.out.println("\nPlaygroundID: "         +this.playgroundID_
                           +"\nPlayground's Name: "    +this.name_
                           +"\nPlayground's Location: "+this.location_
+                          +"\nPlayground's Price: "    +this.price_
                           +"\nAvailable From: "       +this.availableFrom_
                           +"  |  Available To: "      +this.availableTo_+"\n"
         );

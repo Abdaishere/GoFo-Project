@@ -4,8 +4,8 @@ import java.util.Vector;
 
 public class PlaygroundList {
     
-    private Vector<Playground> playgrounds_= new Vector<Playground>();
-
+    private final Vector<Playground> playgrounds_= new Vector<Playground>();
+   
     
     public Playground getPlaygroundByID(int id){
         for (int i = 0; i < playgrounds_.size(); i++) {
@@ -35,7 +35,6 @@ public class PlaygroundList {
 	}
 
 	public void addPlayGround(Playground playground) {
-            this.playgrounds_.add(new Playground(playground.getName(), playground.getLocation(), playground.getPrice(), playground.getAvailableFrom_(), playground.getAvailableTo_(), playground.getOwner()));
-            this.playgrounds_.get(this.playgrounds_.size()-1).setID(this.playgrounds_.size()-1);
+            this.playgrounds_.add(playground);
 	}
 }
